@@ -1,16 +1,16 @@
-<form action="/submit/" method="post" name="event_form">
-	Name <input type="text" name="name"></input><br>
+<div class="main">
+	<form action="/submit/" method="post" name="event_form">
+		<input type="text" placeholder="What?" name="name"></input><br>
+		<input type="datetime-local" placeholder="When?" name="start" class="datepicker"></input> until 
+		<input type="datetime-local" placeholder="End Time" name="end" class="datepicker"></input><br>
+		<input type="text" placeholder="Who?" name="host"></input><br>
+		<input type="text" placeholder="Where?" name="venue"></input><br>
+		<input type="text" placeholder="Price" name="price"></input><br>
+		<textarea placeholder="A short description" name="desc"></textarea><br>
 
-	Start
-	<input type="text" name="start" class="datepicker"></input><br>
-
-	End
-	<input type="text" name="end" class="datepicker"></input><br>
-
-
-	Host <input type="text" name="host"></input><br>
-	Venue <input type="text" name="venue"></input><br>
-	Price <input type="text" name="price"></input><br>
-	Desc <input type="text" name="desc"></input><br>
-	<input type="submit" value="Submit"></input>
-</form>
+		<div class="controls">
+			<input type="submit" value="Submit"></input>
+			<input type="button" value="Clear"></input>
+		</div>
+	</form>
+</div>
