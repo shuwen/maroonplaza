@@ -22,13 +22,35 @@ events = db.events
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+        # Set up some values we need. Today's day, the date a week from now,
+        # today's weekday, and a list of 
         today = datetime.datetime.today()
         next_week = today + datetime.timedelta(days=7)
+        weekday = today.weekday()
+        list_of_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+        days = [(weekday+2)%7, (weekday+3)%7, (weekday+4)%7, (weekday+5)%7, (weekday+6)%7]
+
+        # We also need a structure to sort the events by weekday
+        # Let's use a list of seven lists for that
+        upcoming = [[] for i in range(7)]
+        print upcoming
+
+        # Find the events we want. They'll have to have started before next week,
+        # but they can't have already ended.
+        all_events = events.find({'start': {'$lt': next_week}, 'end': {'$gt': today}})
+        
+        # Go through our list of events, and put them in the appropriate date boxes.
+        for e in all_events:
+            for i in range(7):
+                the_day = today + datetime.timedelta(days=i)
+                if(e["start"].date() <= the_day.date() and e["end"].date() >= the_day.date()):
+                    upcoming[i].append(e)
 
         self.write(self.render_string("templates/header.html"))
-        for event in events.find({'start': {'$lt': next_week}, 'end': {'$gt': today}}):
-            self.write(event["name"])
-        # self.write(self.render_string("main.html"))
+        self.write(self.render_string("main.html"))
+        #for x in upcoming:
+        #    for y in x:
+        #        self.write(y["name"])
         self.write(self.render_string("templates/footer.html"))
         
 
@@ -64,6 +86,7 @@ class SubmitHandler(tornado.web.RequestHandler):
         events.insert(new_event)
     
 settings = {
+    "debug": True,
     "static_path": os.path.join(os.path.dirname(__file__), "static"),
 }
 
