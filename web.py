@@ -22,18 +22,26 @@ events = db.events
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
+        today = datetime.datetime.today()
+        next_week = today + datetime.timedelta(days=7)
+
         self.write(self.render_string("templates/header.html"))
-        for event in events.find():
+        for event in events.find({'start': {'$lt': next_week}, 'end': {'$gt': today}}):
             self.write(event["name"])
         # self.write(self.render_string("main.html"))
         self.write(self.render_string("templates/footer.html"))
         
+
+
 
 class AboutHandler(tornado.web.RequestHandler):
     def get(self):
         self.write(self.render_string("templates/header.html"))
         self.write(self.render_string("about.html"))
         self.write(self.render_string("templates/footer.html"))
+
+
+
 
 class SubmitHandler(tornado.web.RequestHandler):
     def get(self):
@@ -42,9 +50,13 @@ class SubmitHandler(tornado.web.RequestHandler):
         self.write(self.render_string("templates/footer.html"))
     
     def post(self):
+        # Get and parse the time fields into proper Python datetimes
+        start = self.get_argument('start').strip().split('/')
+        end = self.get_argument('end').strip().split('/')
+        # Make the JSON object to put into MongoDB
         new_event = {'name': self.get_argument('name'),
-                     'start': self.get_argument('start'),
-                     'end': self.get_argument('end'),
+                     'start': datetime.datetime(int(start[2]), int(start[0]), int(start[1])),
+                     'end': datetime.datetime(int(end[2]), int(end[0]), int(end[1])),
                      'host': self.get_argument('host'),
                      'venue': self.get_argument('venue'),
                      'price': self.get_argument('price'),
