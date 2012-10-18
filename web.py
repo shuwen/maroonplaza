@@ -46,11 +46,15 @@ class MainHandler(tornado.web.RequestHandler):
                 if(e["start"].date() <= the_day.date() and e["end"].date() >= the_day.date()):
                     upcoming[i].append(e)
 
+        # Build the kwargs dict
+        kwargs = {
+            'days': days,
+            'list_of_days': list_of_days,
+            'upcoming': upcoming,
+        }
+        
         self.write(self.render_string("templates/header.html"))
-        self.write(self.render_string("main.html"))
-        #for x in upcoming:
-        #    for y in x:
-        #        self.write(y["name"])
+        self.write(self.render_string("main.html", **kwargs))
         self.write(self.render_string("templates/footer.html"))
         
 
@@ -75,7 +79,7 @@ class SubmitHandler(tornado.web.RequestHandler):
         # Get and parse the time fields into proper Python datetimes
         start = self.get_argument('start').strip().split('/')
         end = self.get_argument('end').strip().split('/')
-        # Make the JSON object to put into MongoDB
+        # Make the dictionary to put into MongoDB
         new_event = {'name': self.get_argument('name'),
                      'start': datetime.datetime(int(start[2]), int(start[0]), int(start[1])),
                      'end': datetime.datetime(int(end[2]), int(end[0]), int(end[1])),
