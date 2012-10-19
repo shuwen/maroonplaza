@@ -29,14 +29,16 @@
     <td>
       {% for item in upcoming[0] %}
         <div class="entry">
-          {{ item["name"] }}
+          <a class="reveal">{{ item["name"] }}</a>
           <div class="modal">
-            <h3>{{ item["name"] }}</h3>
-            from {{ item["start"] }} to {{ item["end"] }}
-            {{ item["host"] }}
-            {{ item["venue"] }}
-            {{ item["price"] }}
-            {{ item["desc"] }}
+            <div class="modal-content">
+	      <h3>{{ item["name"] }}</h3>
+              from {{ item["start"] }} to {{ item["end"] }}<br>
+              {{ item["host"] }}<br>
+              {{ item["venue"] }}<br>
+              {{ item["price"] }}<br>
+              {{ item["desc"] }}<br>
+	    </div>
           </div>
         </div>
       {% end %}

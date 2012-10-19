@@ -33,7 +33,6 @@ class MainHandler(tornado.web.RequestHandler):
         # We also need a structure to sort the events by weekday
         # Let's use a list of seven lists for that
         upcoming = [[] for i in range(7)]
-        print upcoming
 
         # Find the events we want. They'll have to have started before next week,
         # but they can't have already ended.
