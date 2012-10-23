@@ -6,3 +6,7 @@ $( ".datepicker" ).datepicker({
 $('.reveal').click(function() {
     $(this).siblings('.modal').css('display','block');
 });
+
+$('.modal-close').click(function() {
+    $(this).closest('.modal').css('display','none');
+});
