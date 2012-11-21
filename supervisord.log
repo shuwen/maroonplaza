@@ -1,0 +1,52 @@
+2012-10-31 22:17:29,926 INFO RPC interface 'supervisor' initialized
+2012-10-31 22:17:29,926 WARN cElementTree not installed, using slower XML parser for XML-RPC
+2012-10-31 22:17:29,927 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2012-10-31 22:17:29,932 INFO daemonizing the supervisord process
+2012-10-31 22:17:29,933 INFO supervisord started with pid 9621
+2012-10-31 22:17:30,940 INFO spawned: 'main-8001' with pid 9622
+2012-10-31 22:17:30,946 INFO spawned: 'main-8000' with pid 9623
+2012-10-31 22:17:30,973 INFO spawned: 'main-8003' with pid 9624
+2012-10-31 22:17:30,993 INFO spawned: 'main-8002' with pid 9625
+2012-10-31 22:17:31,995 INFO success: main-8001 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2012-10-31 22:17:31,995 INFO success: main-8000 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2012-10-31 22:17:31,995 INFO success: main-8003 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2012-10-31 22:17:31,995 INFO success: main-8002 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2012-10-31 22:17:32,903 INFO exited: main-8000 (exit status 1; not expected)
+2012-10-31 22:17:32,911 INFO spawned: 'main-8000' with pid 9647
+2012-10-31 22:17:32,912 INFO exited: main-8001 (exit status 1; not expected)
+2012-10-31 22:17:32,912 INFO exited: main-8003 (exit status 1; not expected)
+2012-10-31 22:17:33,279 INFO spawned: 'main-8001' with pid 9653
+2012-10-31 22:17:33,298 INFO spawned: 'main-8003' with pid 9654
+2012-10-31 22:17:33,352 INFO exited: main-8000 (exit status 1; not expected)
+2012-10-31 22:17:33,950 INFO exited: main-8001 (exit status 1; not expected)
+2012-10-31 22:17:33,956 INFO exited: main-8003 (exit status 1; not expected)
+2012-10-31 22:17:34,963 INFO spawned: 'main-8001' with pid 9665
+2012-10-31 22:17:34,979 INFO spawned: 'main-8000' with pid 9666
+2012-10-31 22:17:34,996 INFO spawned: 'main-8003' with pid 9667
+2012-10-31 22:17:35,898 INFO exited: main-8000 (exit status 1; not expected)
+2012-10-31 22:17:35,899 INFO exited: main-8001 (exit status 1; not expected)
+2012-10-31 22:17:35,901 INFO exited: main-8003 (exit status 1; not expected)
+2012-10-31 22:17:37,909 INFO spawned: 'main-8001' with pid 9683
+2012-10-31 22:17:37,920 INFO spawned: 'main-8000' with pid 9684
+2012-10-31 22:17:37,934 INFO spawned: 'main-8003' with pid 9685
+2012-10-31 22:17:38,822 INFO exited: main-8001 (exit status 1; not expected)
+2012-10-31 22:17:38,824 INFO exited: main-8000 (exit status 1; not expected)
+2012-10-31 22:17:38,824 INFO exited: main-8003 (exit status 1; not expected)
+2012-10-31 22:17:41,833 INFO spawned: 'main-8001' with pid 9701
+2012-10-31 22:17:41,843 INFO spawned: 'main-8000' with pid 9702
+2012-10-31 22:17:41,861 INFO spawned: 'main-8003' with pid 9703
+2012-10-31 22:17:42,741 INFO exited: main-8001 (exit status 1; not expected)
+2012-10-31 22:17:42,744 INFO gave up: main-8001 entered FATAL state, too many start retries too quickly
+2012-10-31 22:17:42,744 INFO exited: main-8003 (exit status 1; not expected)
+2012-10-31 22:17:42,747 INFO gave up: main-8003 entered FATAL state, too many start retries too quickly
+2012-10-31 22:17:42,748 INFO exited: main-8000 (exit status 1; not expected)
+2012-10-31 22:17:43,749 INFO gave up: main-8000 entered FATAL state, too many start retries too quickly
+2012-11-02 21:51:01,611 INFO exited: main-8002 (exit status 1; not expected)
+2012-11-02 21:51:02,617 INFO spawned: 'main-8002' with pid 18284
+2012-11-02 21:51:02,755 INFO exited: main-8002 (exit status 1; not expected)
+2012-11-02 21:51:03,760 INFO spawned: 'main-8002' with pid 18289
+2012-11-02 21:51:03,893 INFO exited: main-8002 (exit status 1; not expected)
+2012-11-02 21:51:05,902 INFO spawned: 'main-8002' with pid 18294
+2012-11-02 21:51:06,037 INFO exited: main-8002 (exit status 1; not expected)
+2012-11-02 21:51:09,046 INFO spawned: 'main-8002' with pid 18303
+2012-11-02 21:51:10,047 INFO success: main-8002 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)

@@ -233,11 +233,11 @@ header{
 	padding-left: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-radius: 7px;     
+/* border-radius: 7px;     
 	margin-top: 10px;  
 	margin-bottom: 15px;
 	margin-right: 30px;
-
+	*/
 	}
 nav{
 	padding-left: 10px;
@@ -267,7 +267,9 @@ div.day1{
 	
 }
 
-
+#main table td {
+    width: 14.28%;
+}
 
 
 

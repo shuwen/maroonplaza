@@ -9,6 +9,7 @@ import pymongo
 import ldap
 
 from pymongo import Connection
+from datetime import date
 
 # intialize ldap
 ldap_con = ldap.initialize('ldap://ldap.uchicago.edu')
@@ -87,6 +88,7 @@ class SubmitHandler(tornado.web.RequestHandler):
                      'price': self.get_argument('price'),
                      'desc': self.get_argument('desc'),}
         events.insert(new_event)
+        self.redirect("/")
     
 settings = {
     "debug": True,
