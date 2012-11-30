@@ -1,8 +1,48 @@
 <div class="main">
 	<form action="/submit/" method="post" name="event_form">
 		<input type="text" placeholder="What?" name="name"></input><br>
-		<input type="text" placeholder="When?" name="start" class="datepicker"></input> until 
-		<input type="text" placeholder="End Time" name="end" class="datepicker"></input><br>
+		<input type="text" placeholder="Start Time" name="start" class="datepicker"></input>
+		<select name="start_hour">
+		  <option>12</option>
+		  {% for i in range(12) %}
+		    <option>{{i}}</option>
+		  {% end %}
+		</select>:
+		<select name="start_minute">
+		  {% for i in range(60) %}
+		    {% if (i < 10) %}
+		      <option>0{{i}}</option>
+		    {% else %}
+		      <option>{{i}}</option>
+		    {% end %}  
+		  {% end %}
+		</select>
+		<select name="start_am_or_pm">
+		  <option>AM</option>
+		  <option>PM</option>
+		</select><br>
+
+		<input type="text" placeholder="End Time" name="end" class="datepicker"></input>
+		<select name="end_hour">
+		  <option>12</option>
+		  {% for i in range(12) %}
+		    <option>{{i}}</option>
+		  {% end %}
+		</select>:
+		<select name="end_minute">
+		   {% for i in range(60) %}
+		    {% if (i < 10) %}
+		      <option>0{{i}}</option>
+		    {% else %}
+		      <option>{{i}}</option>
+		    {% end %}  
+		  {% end %}
+		</select>
+		<select name="end_am_or_pm">
+		  <option>AM</option>
+		  <option>PM</option>
+		</select><br>
+		
 		<input type="text" placeholder="Who?" name="host"></input><br>
 		<input type="text" placeholder="Where?" name="venue"></input><br>
 		<input type="text" placeholder="Price" name="price"></input><br>
