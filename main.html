@@ -1,49 +1,52 @@
-<div id="main">
-  <table>
-    <tr>
-      <th>
-        <h1>Today</h1>
-      </th>
-      <th>
-        <h1>Tomorrow</h1>
-      </th>
-      <th>
-        <h1>{{ list_of_days[days[0]] }}</h1>
-      </th>
-      <th>
-        <h1>{{ list_of_days[days[1]] }}</h1>
-      </th>
-      <th>
-        <h1>{{ list_of_days[days[2]] }}</h1>
-      </th>
-      <th>
-        <h1>{{ list_of_days[days[3]] }}</h1>
-      </th>
-      <th>
-        <h1>{{ list_of_days[days[4]] }}</h1>
-      </th>
-      </tr>
+<h3>This Week</h3>
+<table>
+  <tr>
+    <th>
+      <h3>Today</h3>
+    </th>
+    <th>
+      <h3>Tomorrow</h3>
+    </th>
+    <th>
+      <h3>{{ list_of_days[days[0]] }}</h3>
+    </th>
+    <th>
+      <h3>{{ list_of_days[days[1]] }}</h3>
+    </th>
+    <th>
+      <h3>{{ list_of_days[days[2]] }}</h3>
+    </th>
+    <th>
+      <h3>{{ list_of_days[days[3]] }}</h3>
+    </th>
+    <th>
+      <h3>{{ list_of_days[days[4]] }}</h3>
+    </th>
+  </tr>
+
   <tr>
     {% for i in range(7) %}
       <td>
-	{% for item in upcoming[i] %}
+        <div class="spacer"></div>
+      	{% for item in upcoming[i] %}
           <div class="entry">
             <a class="reveal">{{ item["name"] }}</a>
             <div class="modal">
               <div class="modal-content">
-		<h3>{{ item["name"] }}</h3>
-		from {{ item["start"] }} to {{ item["end"] }}<br>
-		hosted by {{ item["host"] }}<br>
-		at {{ item["venue"] }}<br>
-		it costs {{ item["price"] }}<br>
-		description: {{ item["desc"] }}<br>
-	      </div>
-	      <a class="modal-close">Close</a>
+                [<a class="modal-close">close</a>]
+            		<h5 class="{{ item["cat"] }}">{{ item["name"] }}</h5>
+            		<strong>Time</strong> {{ item["start"] }} -- {{ item["end"] }}<br />
+            		<strong>Place</strong> {{ item["venue"] }}<br />
+			<strong>Category</strong> {{ item["cat"] }}<br />
+			<strong>Host</strong> {{ item["host"] }}<br />
+			<strong>Price</strong> {{ item["price"] }}<br />
+			<strong>Description</strong> {{ item["desc"] }}<br />
+      	      </div>
             </div>
           </div>
-	  {% end %}
+          <hr />
+    	  {% end %}
       </td>
     {% end %}
-    </tr>
-  </table>
-</div>
+  </tr>      
+</table>

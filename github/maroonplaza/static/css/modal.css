@@ -1,0 +1,15 @@
+.entry .modal {
+    display: none;
+    position: absolute;
+    top: 33%;
+    left: 50%;
+}
+
+.modal-content {
+    position: relative;
+    left: -50%;
+    background: #fff;
+    box-shadow: 0 0 30px #333;
+    border: 1px solid #ccc;
+    padding: 2em 3em 4em;
+}

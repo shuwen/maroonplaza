@@ -14,6 +14,7 @@ from datetime import date
 # intialize ldap
 l = ldap.initialize('ldap://ldap.uchicago.edu:389')
 
+# l.start_tls_s()
 
 # initialize database
 mongo = Connection()
@@ -90,7 +91,7 @@ class AuthHandler(BaseHandler):
             self.write("Incorrect username/password combo.")
             self.redirect("/")
         except ldap.LDAPError, error_message:
-            self.write("Could not log in.")
+            self.write("It didn't work")
             print "Couldn't connect. %s " % error_message
 
 
@@ -99,22 +100,6 @@ class LogOut(BaseHandler):
     def get(self):
         self.clear_cookie("user")
         self.redirect("/")
-
-
-class ListHandler(BaseHandler):
-    def get(self):
-        today = datetime.datetime.today()
-        next_week = today + datetime.timedelta(days=7)
-        # Same query for weekly calendar without needing to arrange into days
-        all_events = events.find({'start': {'$lte': next_week}, 'end': {'$gt': today - datetime.timedelta(days=1)}})
-
-        kwargs = {
-            'list_events': all_events,
-        }
-
-        self.write(self.render_string("templates/header.html"))
-        self.write(self.render_string("list.html", **kwargs))
-        self.write(self.render_string("templates/footer.html"))
 
 
 class SubmitHandler(BaseHandler):
@@ -150,7 +135,6 @@ class SubmitHandler(BaseHandler):
                                               end_hour, int(self.get_argument('end_minute'))),
                      'host': self.get_argument('host',default=None),
                      'venue': self.get_argument('venue',default=None),
-                     'cat': self.get_argument('cat',default=None),
                      'price': self.get_argument('price',default=None),
                      'desc': self.get_argument('desc',default=None),}
         events.insert(new_event)
@@ -172,8 +156,6 @@ application = tornado.web.Application([
     (r'/about', AboutHandler),
     (r'/submit/', SubmitHandler),
     (r'/submit', SubmitHandler),
-    (r'/list/', ListHandler),
-    (r'/list', ListHandler),
     (r'/login/', AuthHandler),
     (r'/login', AuthHandler),
     (r'/logout/', LogOut),

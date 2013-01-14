@@ -13,7 +13,71 @@
    Shared Styles
 ----------------------------------------- */
 
+body {
+    font-family: 'ProximaNova-Regular';
+    line-height: 1.33em;
+}
 
+#navbar {
+	outline: 5px solid #800000;
+}
+
+#navbar section ul li a {
+	font-size: 16px;
+	font-family: 'ProximaNova-Light', sans;
+	font-weight: lighter;
+}
+
+#main table, #main form {
+	width: 94%;
+	min-height: 100%;
+	margin: auto;
+}
+
+#main table tr td,
+#main table tr th
+{
+	width: 14.2857143%;
+}
+
+#main table th h3 {
+	font: 22pt 'ProximaNova-Light';
+	font-weight: lighter;
+}
+
+#main aside {
+	padding-left: auto 0 auto 15px;
+}
+
+#main aside img {
+	margin: auto;
+	max-width: 191px;
+}
+
+#main {
+	margin-top: 66px;
+	width: 100%;
+	min-height: 100%;
+}
+
+#info {
+	width: 100%;
+	font-size: 12px;
+}
+
+#info footer {
+	padding-left: 5em;
+}
+
+input[name="start"],
+input[name="end"] {
+    margin-right: 14px;
+}
+
+.spacer {
+	height: 1em;
+	visibility: hidden;
+}
 
 /* -----------------------------------------
    Page Name 1

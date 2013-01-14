@@ -1,5 +1,10 @@
-<div id="main">
-	{% for item in mp_events %}
-		{{ item.table }}
-	{% endfor %}
-</div>
+<h3>List of Events</h3>
+{% for item in list_events %}
+    <hr />
+	<h4>{{ item["name"] }}</h4>
+	<strong>Time</strong> {{ item["start"] }} -- {{ item["end"] }}<br />
+	<strong>Place</strong> {{ item["venue"] }}<br />
+    <strong>Host</strong> {{ item["host"] }}<br />
+    <strong>Price</strong> {{ item["price"] }}<br />
+    <strong>Description</strong> {{ item["desc"] }}<br />
+{% end %}

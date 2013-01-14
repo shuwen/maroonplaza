@@ -2,7 +2,14 @@
 /* zurb.com */
 /* humanstxt.org */
 
+/* TEAM */
+  UX: Hunter Owens
+  Website: hunterowens.net
+
+  Developer: Shuwen Qian
+  Website: shuwen.me
+
 /* SITE */
   Standards: HTML5, CSS3
-  Components: jQuery, Orbit, Reveal
-  Software: Coda, Textmate, Git
+  Components: Foundation, jQuery, Tornado, MongoDB
+  Software: Sublime Text 2, Cyberduck
