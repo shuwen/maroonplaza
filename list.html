@@ -1,9 +1,17 @@
 <h3>List of Events</h3>
 {% for item in list_events %}
-    <hr />
-	<h4>{{ item["name"] }}</h4>
-	<strong>Time</strong> {{ item["start"] }} -- {{ item["end"] }}<br />
-	<strong>Place</strong> {{ item["venue"] }}<br />
+    <h4>
+      <i class="{% if item['cat']=='food' %}icon-glass
+		{% elif item['cat']=='buns' %}icon-remove-circle
+		{% elif item['cat']=='tix' %}icon-tags
+		{% elif item['cat']=='bakedgoods' %}icon-certificate
+		{% elif item['cat']=='apparel' %}icon-shopping-cart
+		{% else %}icon-gift
+		{% end %}"></i>&nbsp;
+      {{ item["name"] }}</h4>
+    <strong>Time</strong> {{ datetime.date.strftime(item["start"],"%I:%M%p %m/%d/%y") }}–{{ datetime.date.strftime(item["end"],"%I:%M%p %m/%d/%y") }}<br />
+
+    <strong>Place</strong> {{ item["venue"] }}<br />
     <strong>Host</strong> {{ item["host"] }}<br />
     <strong>Price</strong> {{ item["price"] }}<br />
     <strong>Description</strong> {{ item["desc"] }}<br />

@@ -27,25 +27,39 @@
   <tr>
     {% for i in range(7) %}
       <td>
-        <div class="spacer"></div>
       	{% for item in upcoming[i] %}
           <div class="entry">
-            <a class="reveal">{{ item["name"] }}</a>
+            <a class="reveal">
+	      <i class="{% if item['cat']=='food' %}icon-glass
+			{% elif item['cat']=='buns' %}icon-remove-circle
+			{% elif item['cat']=='tix' %}icon-tags
+			{% elif item['cat']=='bakedgoods' %}icon-certificate
+			{% elif item['cat']=='apparel' %}icon-shopping-cart
+			{% else %}icon-gift
+			{% end %}"></i>&nbsp;
+	      {{ item["name"] }}
+	    </a>
             <div class="modal">
               <div class="modal-content">
-                [<a class="modal-close">close</a>]
+                <a class="modal-close">(close)</a>
             		<h5 class="{{ item["cat"] }}">{{ item["name"] }}</h5>
-            		<strong>Time</strong> {{ item["start"] }} -- {{ item["end"] }}<br />
+            		<strong>Time</strong> {{ datetime.date.strftime(item["start"],"%I:%M%p %m/%d/%y") }}–{{ datetime.date.strftime(item["end"],"%I:%M%p %m/%d/%y") }}<br />
             		<strong>Place</strong> {{ item["venue"] }}<br />
-			<strong>Category</strong> {{ item["cat"] }}<br />
+			<strong>Category</strong>
+			{% if item['cat']=='food' %}Food
+			{% elif item['cat']=='buns' %}Chinese Buns
+			{% elif item['cat']=='tix' %}Event Tickets
+			{% elif item['cat']=='bakedgoods' %}Baked Goods
+			{% elif item['cat']=='apparel' %}Apparel
+			{% else %}Other
+			{% end %}<br />
 			<strong>Host</strong> {{ item["host"] }}<br />
 			<strong>Price</strong> {{ item["price"] }}<br />
 			<strong>Description</strong> {{ item["desc"] }}<br />
       	      </div>
             </div>
           </div>
-          <hr />
-    	  {% end %}
+          {% end %}
       </td>
     {% end %}
   </tr>      

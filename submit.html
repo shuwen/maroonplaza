@@ -1,37 +1,33 @@
 <h3>Submit an Event</h3>
 
-<form action="/submit/" method="post" name="event_form">
-  <input type="text" placeholder="What?" name="name"></input>
+<form class="custom" action="/submit/" method="post" name="event_form">
+  <strong>Event Name</strong>
+  <input type="text" name="name"></input>
 
   <fieldset class="six columns timefield">
-    <legend>Start Time</legend>
-    <input type="text" placeholder="Start Time" name="start" class="datepicker"></input>
-    <div class="row">
-      <select name="start_hour">
+    <legend>Begins</legend>
+    <input type="text" placeholder="Start Date" name="start" class="datepicker"></input>
+    <select name="start_hour">
         <option>12</option>
         {% for i in range(1,12) %}
           <option>{{i}}</option>
         {% end %}
-      </select>
-      <select name="start_minute">
-        {% for i in range(60) %}
-          {% if (i < 10) %}
-            <option>0{{i}}</option>
-          {% else %}
-            <option>{{i}}</option>
-          {% end %}  
-        {% end %}
+    </select>
+    <select name="start_minute">
+        <option>00</option>
+        <option>15</option>
+        <option>30</option>
+        <option>45</option>
       </select>
       <select name="start_am_or_pm">
         <option>AM</option>
         <option>PM</option>
       </select>
-    </div>
   </fieldset>
   
   <fieldset class="six columns timefield">
-    <legend>End Time</legend>
-    <input type="text" placeholder="End Time" name="end" class="datepicker"></input>
+    <legend>Ends</legend>
+    <input type="text" placeholder="End Date" name="end" class="datepicker"></input>
     <select name="end_hour">
       <option>12</option>
       {% for i in range(1,12) %}
@@ -39,13 +35,10 @@
       {% end %}
     </select>
     <select name="end_minute">
-      {% for i in range(60) %}
-        {% if (i < 10) %}
-          <option>0{{i}}</option>
-        {% else %}
-          <option>{{i}}</option>
-        {% end %}  
-      {% end %}
+      <option>00</option>
+      <option>15</option>
+      <option>30</option>
+      <option>45</option>
     </select>
     <select name="end_am_or_pm">
       <option>AM</option>
@@ -53,18 +46,38 @@
     </select>
   </fieldset>
   
-  <input type="text" placeholder="Who?" name="host"></input><br>
-  <input type="text" placeholder="Where?" name="venue"></input><br>
-  <select name="cat">
-    <option value="food">Food</option>
+  <strong>Host</strong>
+  <input type="text" placeholder="e.g. Student Government" name="host"></input>
+  <strong>Place</strong>
+  <input type="text" placeholder="e.g. Reynolds Club" name="venue"></input>
+  <select style="display:none;" id="cat" name="cat">
+    <option value="food" SELECTED>Food</option>
     <option value="buns">Chinese Buns</option>
     <option value="tix">Event Tickets</option>
     <option value="bakedgoods">Baked Goods</option>
     <option value="apparel">Apparel</option>
     <option value="other">Other</option>
   </select>
-  <input type="text" placeholder="Price" name="price"></input><br>
-  <textarea placeholder="A short description" name="desc" maxlength="140"></textarea><br>
+  <strong>Category</strong>
+  <div class="custom dropdown">
+    <a href="#" class="current">
+      <i class="icon-glass">F</i> Food
+    </a>
+    <a href="#" class="selector"></a>
+    <ul>
+      <li><i class="icon-glass"></i>  Food</li>
+      <li><i class="icon-remove-circle"></i>  Chinese Buns</li>
+      <li><i class="icon-tags"></i>  Event Tickets</li>
+      <li><i class="icon-certificate"></i>  Baked Goods</li>
+      <li><i class="icon-shopping-cart"></i>  Apparel</li>
+      <li><i class="icon-gift"></i>  Other</li>
+    </ul>
+  </div>
+  <strong>Price</strong>
+  <input type="text" placeholder="e.g. $3.00" name="price"></input>
+  <strong>Description</strong> (max 160 char)
+  <textarea id="desc" name="desc" maxlength="160"></textarea>
+  <br>
   
   <div class="controls">
     <input class="button" type="submit" value="Submit"></input>
